@@ -7,7 +7,7 @@
 		grades
 		.map((grade, index) => grade * weights[index])
 		.reduce((sum, grade) => sum + grade)
-		+ (extra ? 0.01 : 0);
+		+ (extra ? 0.002 : 0);
 
 	function toPercent(score) {
 		return (score * 100).toFixed(2);
