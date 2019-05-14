@@ -18,6 +18,19 @@
 	}
 </script>
 
+<style>
+	.center {
+		width: 32px;
+		margin: 0 auto;
+	}
+</style>
+
+<div class="center">
+<a href="https://github.com/yhylord/no-429-final">
+	<img src="github.svg" alt="github" height=32 weight=32>
+</a>
+</div>
+
 <Exams totals={[82, 85, 90]} bind:dropped={grades[3]} bind:final={grades[4]}/>
 <Grades name={'Homeworks'} totals={Array(11).fill(10)} bind:average={grades[0]}/>
 <Grades name={'Labs'} totals={Array(6).fill(100)} bind:average={grades[2]}/>
