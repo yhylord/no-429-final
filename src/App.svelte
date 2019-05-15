@@ -1,17 +1,13 @@
 <script>
 	import Grades from './Grades.svelte';
 	import Exams from './Exams.svelte';
+	import { toPercent, sum, zipWith } from './utils.js';
+
 	let weights = [.1, .05, .35, .3, .2], grades = Array(5).fill(0);
 	let total = 0, extra = false;
 	$: total =
-		grades
-		.map((grade, index) => grade * weights[index])
-		.reduce((sum, grade) => sum + grade)
+		sum(zipWith(grades, weights, (a, b) => a * b))
 		+ (extra ? 0.002 : 0);
-
-	function toPercent(score) {
-		return (score * 100).toFixed(2);
-	}
 
 	function celebrate() {
 		alert("we'll get to there in a minute");
