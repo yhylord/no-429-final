@@ -7,7 +7,7 @@
 	let total = 0, extra = false;
 	$: total =
 		sum(zipWith(grades, weights, (a, b) => a * b))
-		+ (extra ? 0.002 : 0);
+		+ (extra ? 0.2 : 0);
 
 	function celebrate() {
 		alert("we'll get to there in a minute");
@@ -27,6 +27,7 @@
 </a>
 </div>
 
+{grades}
 <Exams totals={[82, 85, 90]} bind:dropped={grades[3]} bind:final={grades[4]}/>
 <Grades name={'Homeworks'} totals={Array(11).fill(10)} bind:average={grades[0]}/>
 <Grades name={'Labs'} totals={Array(6).fill(100)} bind:average={grades[2]}/>
@@ -40,7 +41,7 @@ Yes I want that sweet sweet extra credit
 I'm too smart to beg for one more point
 {/if}
 
-<h1>Total: {toPercent(total)}%</h1>
-{#if total >= .93 }
+<h1>Total: {total.toFixed(2)}%</h1>
+{#if total >= 93 }
 <button on:click={celebrate}>Celebrate</button>
 {/if}
